@@ -1,0 +1,512 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  background-color: #eb9776;
+  display: inline-block;
+  border: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  .chat-icon {
+    padding: 20px;
+  }
+
+  .close-icon {
+    padding: 23px 10px 10px 25px;
+    transform: rotate(0);
+    animation: rotate 100ms linear;
+    svg {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.chat-box {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  height: 600px;
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  width: 350px;
+  z-index: 999;
+  box-shadow: 0 0 8px 0 rgb(187, 187, 187);
+}
+
+.chat-head {
+  text-align: center;
+  background-color: #e38f6e;
+  height: 48px;
+  border-radius: 4px 4px 0 0;
+  color: white;
+  button {
+    float: left;
+    background-color: #e38f6e;
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    outline: none;
+    svg {
+      fill: white;
+    }
+  }
+  p {
+    padding: 15px 0;
+    margin-right: 40px;
+    font-size: 13px;
+    display: inline-block;
+  }
+}
+
+.chat-contact {
+  text-align: center;
+  background-color: #e38f6e;
+  color: white;
+  padding-bottom: 31px;
+  h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    padding-top: 7px;
+    line-height: 24px;
+  }
+  p {
+    font-size: 14px;
+    margin-top: -9px;
+    opacity: 0.65;
+    margin-bottom: 8px;
+    line-height: 19px;
+  }
+  .contacts {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    max-width: 230px;
+    min-height: 64px;
+    width: 100%;
+    min-width: 0px;
+    padding-top: 8px;
+    margin: auto;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid white;
+      margin-left: -4px;
+    }
+  }
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 6px;
+  background-color: #f9fafa;
+}
+
+.chat-form-content {
+  padding: 16px;
+  .textarea-container {
+    position: relative;
+    textarea {
+      display: block;
+      width: 91%;
+      height: 52px;
+      padding: 12px;
+      border-radius: 5px;
+      border: 2px solid #c1cbd4;
+      margin-bottom: 10px;
+      opacity: 0.6;
+      float: left;
+      font-size: 14px;
+      outline-color: #07c;
+      resize: none;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 45px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    svg {
+      fill: #c1cbd4;
+      &:hover {
+        fill: grey;
+      }
+    }
+  }
+}
+
+.chat-form {
+  input {
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 5px;
+    border: 2px solid #c1cbd4;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    width: 88%;
+    padding: 0 16px;
+    opacity: 0.6;
+    outline-color: #07c;
+  }
+  #send-button {
+    background-color: #eb9776;
+    border-radius: 4px;
+    padding: 16px 40px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    &:hover {
+      background-color: #e38f6e;
+    }
+  }
+}
+
+.users {
+  margin-top: 40px;
+  table {
+    width: 100%;
+  }
+  caption {
+    font-size: 1.6em;
+    font-weight: 400;
+    padding: 10px 0;
+  }
+  thead th {
+    font-weight: 400;
+    background: #8a97a0;
+    color: #fff;
+  }
+  tr {
+    background: #f4f7f8;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 5px;
+    &:nth-child(even) {
+      background: #e8eeef;
+    }
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 20px;
+    font-weight: 300;
+  }
+  tfoot {
+    tr {
+      background: none;
+    }
+    td {
+      padding: 10px 2px;
+      font-size: 0.8em;
+      font-style: italic;
+      color: #8a97a0;
+    }
+  }
+}
+
+.sign-in {
+  position: fixed;
+  bottom: 50%;
+  right: 50%;
+  div {
+    padding: 20px;
+    border: 0.5px dotted grey;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    button {
+      background-color: #07c;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      &:hover {
+        background-color: #0095ff;
+      }
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.sign-out {
+  border: solid 2px white;
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  background-color: black;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+  // border: none;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background-color: grey;
+  }
+}
+
+.powered-by {
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+
+  .tooltip {
+    position: relative;
+    border-radius: 0.4em;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: rgb(0, 0, 0.001);
+    color: white;
+    font-size: 12px;
+    padding: 2px 10px;
+    visibility: hidden;
+    display: block;
+    width: 95px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-top-color: rgb(0, 0, 0.001);
+      border-bottom: 0;
+      margin-left: -5px;
+      margin-bottom: -5px;
+    }
+  }
+  svg {
+    fill: #c1cbd4;
+    margin: 0 auto;
+  }
+  &:hover .tooltip {
+    visibility: visible;
+  }
+}
+
+.email-button {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 180px;
+  width: 330px;
+  transition: top ease 0.4s;
+  &:hover {
+    top: 175px;
+  }
+  button {
+    padding: 40px 10px;
+    display: flex;
+    text-align: left;
+    background-color: white;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 0 8px 0 rgb(187, 187, 187);
+    cursor: pointer;
+    outline: none;
+
+    h1 {
+      font-size: 15px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: grey;
+    }
+  }
+  div {
+    margin: 0 10px;
+  }
+
+  svg {
+    fill: #e38f6e;
+  }
+}
+
+.confirmation {
+  height: 65%;
+  background-color: white;
+  div {
+    width: 290px;
+    margin-left: 30px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 80px;
+    h1 {
+      font-size: 20px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+    p {
+      color: grey;
+      font-size: 13px;
+    }
+  }
+}
+
+.contact-conf {
+  border-radius: 0 0 50% 50%;
+}
+
+.nav {
+  background-color: #f96e5b;
+  padding: 16px;
+  a {
+    margin-right: 20px;
+    text-decoration: none;
+    margin-bottom: 40px;
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.login {
+  padding: 20px;
+  position: absolute;
+  left: calc((100% - 370px) / 2);
+  top: calc((100% - 165px) / 2);
+  background-color: #c1cbd4;
+  display: inline-block;
+  input {
+    height: 20px;
+    margin-bottom: 5px;
+    display: block;
+    border-radius: 2px;
+    width: 350px;
+    padding: 10px;
+    border: none;
+  }
+
+  button {
+    background-color: #07c;
+    padding: 10px;
+    color: white;
+    border-radius: 2px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 370px;
+  }
+
+  .log-spin {
+    margin-top: 10px;
+    margin-left: calc(50% - 11px);
+  }
+
+  p {
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+    font-size: 15px;
+  }
+}
+
+.Already-logged {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc((100% - 748.484px) / 2);
+  button {
+    position: relative;
+    margin-left: 20px;
+    background-color: black;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+      background-color: grey;
+    }
+  }
+}
+
+.sign-up {
+  padding: 20px;
+  position: absolute;
+  left: calc((100% - 370px) / 2);
+  top: calc((100% - 165px) / 2);
+  background-color: #c1cbd4;
+  display: inline-block;
+  input {
+    height: 20px;
+    margin-bottom: 5px;
+    display: block;
+    border-radius: 2px;
+    width: 350px;
+    padding: 10px;
+    border: none;
+  }
+  button {
+    background-color: #07c;
+    padding: 10px;
+    color: white;
+    border-radius: 2px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 370px;
+  }
+
+  p {
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+    font-size: 15px;
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/*# sourceMappingURL=App.css.map */
