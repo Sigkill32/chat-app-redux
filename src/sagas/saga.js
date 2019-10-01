@@ -1,25 +1,20 @@
-import { takeEvery, put, call } from "redux-saga/effects";
-import { db, rsf } from "../config/firebaseConf";
+import { takeEvery, put } from "redux-saga/effects";
+import { db } from "../config/firebaseConf";
+
+async function f1() {
+  const collection = await db.collection("Users").get();
+  const docs = collection.docs.map(doc => doc.data());
+  return docs.map(doc => ({
+    name: doc.name,
+    email: doc.email,
+    message: doc.message,
+    sub: doc.sub
+  }));
+}
 
 function* getData() {
-  let users = [];
-  db.collection("Users")
-    .get()
-    .then(collection => {
-      const docs = collection.docs.map(doc => doc.data());
-      docs.map(doc =>
-        users.push({
-          name: doc.name,
-          email: doc.email,
-          message: doc.message,
-          sub: doc.sub
-        })
-      );
-      console.log(users);
-      return users;
-    });
-
-  yield put({ type: "ASYNC_FETCH_DATA", data: users });
+  let users = yield f1();
+  yield put({ type: "ASYNC_FETCH_DATA", users: users });
 }
 
 export function* watchAsyncData() {

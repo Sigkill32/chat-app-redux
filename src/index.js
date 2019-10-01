@@ -13,7 +13,7 @@ import { watchAsyncData } from "./sagas/saga";
 const sagaMiddleWare = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(sagaMiddleWare));
 sagaMiddleWare.run(watchAsyncData);
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
+// const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>

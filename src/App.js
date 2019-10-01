@@ -28,7 +28,7 @@ class App extends Component {
     if (token) {
       firebaseApp.auth().onAuthStateChanged(authenticated => {
         authenticated
-          ? console.log(authenticated)
+          ? this.setState({ authenticated: true })
           : this.setState({ authenticated: false });
       });
     }
@@ -36,7 +36,6 @@ class App extends Component {
       localStorage.setItem("token", "loggedIn");
       this.setState({ authenticated: true });
     }
-    console.log(this.state.authenticated);
   }
 
   // getData = async () => {
@@ -68,9 +67,9 @@ class App extends Component {
       });
     } catch (error) {
       console.log(error);
-      const users = this.state.users;
+      const users = this.props.users;
       users.pop();
-      this.setState({ users });
+      this.props.dispatch({ type: "ADD_MESSAGES", users: users });
     }
   };
 
@@ -78,7 +77,7 @@ class App extends Component {
     const { name, sub, email, message } = this.state;
     const result = this.validateForm(name, email, sub, message);
     if (result) {
-      let users = [...this.state.users, { name, sub, email, message }];
+      let users = [...this.props.users, { name, sub, email, message }];
       this.setState({
         name: "",
         sub: "",
@@ -86,7 +85,7 @@ class App extends Component {
         message: "",
         noEmailButton: "sent"
       });
-      this.props.dispatch({ type: "ADD_MESSAGES", data: users });
+      this.props.dispatch({ type: "ADD_MESSAGES", users: users });
       this.writeData(name, email, sub, message);
     }
   };
@@ -140,7 +139,6 @@ class App extends Component {
 
   removeAuth = () => {
     this.setState({ authenticated: false });
-    console.log("remove Auth");
   };
 
   render() {
@@ -155,8 +153,6 @@ class App extends Component {
     } = this.state;
 
     const { users } = this.props;
-
-    console.log("App", authenticated);
 
     return (
       <div>

@@ -41,14 +41,12 @@ class Login extends Component {
 
   handleKeyDown = e => {
     if (e.keyCode === 13) {
-      console.log("enter");
       this.handleSubmit();
     }
   };
 
   render() {
     const { username, password, error, loggedIn } = this.state;
-    console.log("auth", this.props.authenticated);
     return (
       <div className="login-wrapper">
         <div className="login">

@@ -1,20 +1,20 @@
 export function reducer(state = initState, action) {
-  const newState = { ...state };
-
-  console.log(action);
+  let newState = { ...state };
 
   switch (action.type) {
     case "ASYNC_FETCH_DATA":
-      newState.users = action.data;
-      console.log("red:", action.data);
-      break;
+      return {
+        ...state,
+        users: [...state.users, ...action.users]
+      };
     case "ADD_MESSAGES":
-      newState.users = action.data;
-      break;
+      return {
+        ...state,
+        users: [...action.users]
+      };
     default:
       break;
   }
-
   return newState;
 }
 
