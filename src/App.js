@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 class App extends Component {
   state = {
     authenticated: false,
-    users: [],
     name: "",
     sub: "",
     email: "",
@@ -151,10 +150,11 @@ class App extends Component {
       email,
       sub,
       message,
-      users,
       closed,
       noEmailButton
     } = this.state;
+
+    const { users } = this.props;
 
     console.log("App", authenticated);
 
